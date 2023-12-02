@@ -1,6 +1,5 @@
-﻿using AdventOfCode.Y2023.Days.Day2;
+﻿using AdventOfCode.Y2023.Day2;
 
-Console.WriteLine("Hello, World!");
 var day = new Day2();
-Console.WriteLine(day.Solution1());
-Console.WriteLine(day.Solution2());
+Console.WriteLine("Part 1 solution is: " + day.Solution1());
+Console.WriteLine("Part 2 solution is: " + day.Solution2());

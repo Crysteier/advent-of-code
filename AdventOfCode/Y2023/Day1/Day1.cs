@@ -4,8 +4,19 @@ using AdventOfCode.Shared.Years;
 
 namespace AdventOfCode.Y2023.Day1
 {
-    internal class Day1 : Year2023
+    public class Day1 : Year2023
     {
+        string[] test = new[]
+        {
+            "two1nine",
+            "eightwothree",
+            "abcone2threexyz",
+            "xtwone3four",
+            "4nineeightseven2",
+            "zoneight234",
+            "7pqrstsixteen"
+        };
+
         public Day1() : base($"{nameof(Day1)}//input1.txt") { }
 
         public override string Solution1()
@@ -27,16 +38,7 @@ namespace AdventOfCode.Y2023.Day1
 
             var sum = 0;
             var secondsum = 0;
-            var test = new[]
-            {
-                "two1nine",
-                "eightwothree",
-                "abcone2threexyz",
-                "xtwone3four",
-                "4nineeightseven2",
-                "zoneight234",
-                "7pqrstsixteen"
-            };
+           
 
             foreach (var line in input)
             {

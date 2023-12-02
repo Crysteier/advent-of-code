@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AdventOfCode.Shared;
 using AdventOfCode.Shared.Years;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace AdventOfCode.Y2023.Day2
 {
@@ -31,57 +33,15 @@ namespace AdventOfCode.Y2023.Day2
 
             foreach (var line in input)
             {
-                var gameNum = line.Substring(0, line.IndexOf(':'));
-                var game = line.Substring(line.IndexOf(':') + 2);
+                var gameNum = GetMaxNumber(line, ("Game (\\d+)")).First();
+                var greenMax = GetMaxNumber(line,("(\\d+) green")).Max();
+                var blueMax = GetMaxNumber(line, ("(\\d+) blue")).Max();
+                var redMax = GetMaxNumber(line, ("(\\d+) red")).Max();
 
-                int reds = 0;
-                int blues = 0;
-                int greens = 0;
-                bool falseRound = false;
-                var rounds = game.Split(';');
-
-                foreach (var round in rounds)
+                if (!(greenMax > MaxGreen || blueMax > MaxBlue || redMax > MaxRed))
                 {
-                    var cubes = round.Split(',', StringSplitOptions.TrimEntries);
-
-                    foreach (var cube in cubes)
-                    {
-                        var oneCube = cube.Split(' ');
-
-                        switch (oneCube[1])
-                        {
-                            case "red":
-                                reds = int.Parse(oneCube[0]);
-                                break;
-                            case "blue":
-                                blues = int.Parse(oneCube[0]);
-                                break;
-                            case "green":
-                                greens = int.Parse(oneCube[0]);
-                                break;
-                            default:
-                                break;
-                        }
-
-                        if (reds > MaxRed || blues > MaxBlue || greens > MaxGreen)
-                        {
-                            falseRound = true;
-                            break;
-                        }
-                    }
-                    if (falseRound)
-                    {
-                        break;
-                    }
+                    sum += gameNum;
                 }
-                if (falseRound)
-                {
-                    falseRound = !falseRound;
-                    continue;
-                }
-                sum += int.Parse(gameNum.Split(' ')[1]);
-                falseRound = !falseRound;
-
             }
 
             return sum.ToString();
@@ -93,44 +53,26 @@ namespace AdventOfCode.Y2023.Day2
 
             foreach (var line in input)
             {
-                var gameNum = line.Substring(0, line.IndexOf(':'));
-                var game = line.Substring(line.IndexOf(':') + 2);
+                var greenMax = GetMaxNumber(line, ("(\\d+) green")).Max();
+                var blueMax = GetMaxNumber(line, ("(\\d+) blue")).Max();
+                var redMax = GetMaxNumber(line, ("(\\d+) red")).Max();
 
-                int reds = 0;
-                int blues = 0;
-                int greens = 0;
-                var rounds = game.Split(';');
-
-                foreach (var round in rounds)
-                {
-                    var cubes = round.Split(',', StringSplitOptions.TrimEntries);
-
-                    foreach (var cube in cubes)
-                    {
-                        var oneCube = cube.Split(' ');
-
-                        switch (oneCube[1])
-                        {
-                            case "red":
-                                reds = oneCube[0].ToInt() > reds ? oneCube[0].ToInt() : reds;
-                                break;
-                            case "blue":
-                                blues = oneCube[0].ToInt() > blues ? oneCube[0].ToInt() : blues;
-                                break;
-                            case "green":
-                                greens = oneCube[0].ToInt() > greens ? oneCube[0].ToInt() : greens;
-                                break;
-                            default:
-                                break;
-                        }
-
-                    }
-                }
-
-                sum += reds * greens * blues;
+                sum += greenMax * blueMax * redMax;
             }
-
+            
             return sum.ToString();
+        }
+
+        /// <summary>
+        /// Pretty much yoinked this from @encse because its so very nice.
+        /// </summary>
+        /// <param name="game"></param>
+        /// <param name="pattern"></param>
+        /// <returns>The parsed int number from match.</returns>
+        private IEnumerable<int> GetMaxNumber(string game,string pattern)
+        {
+            var result = from m in Regex.Matches(game, pattern) select int.Parse(m.Groups[1].Value);
+            return result;
         }
     }
 }

@@ -17,7 +17,7 @@ namespace AdventOfCode.Y2023.Day1
             "7pqrstsixteen"
         };
 
-        public Day1() : base($"{nameof(Day1)}//input1.txt") { }
+        public Day1() : base(nameof(Day1)) { }
 
         public override string Solution1()
         {
@@ -38,7 +38,7 @@ namespace AdventOfCode.Y2023.Day1
 
             var sum = 0;
             var secondsum = 0;
-           
+
 
             foreach (var line in input)
             {

@@ -25,7 +25,7 @@ namespace AdventOfCode.Y2023.Day2
             "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"
         };
 
-        public Day2() : base($"{nameof(Day2)}//input2.txt") { }
+        public Day2() : base(nameof(Day2)) { }
 
         public override string Solution1()
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace AdventOfCode.Shared
@@ -17,7 +18,9 @@ namespace AdventOfCode.Shared
 
         public List<string> ReadInput(string fileName)
         {
-            var sr = new StreamReader(fileName);
+            var inputNumber = Regex.Match(fileName, (@"\d+"),RegexOptions.RightToLeft).Value;
+            var path = fileName + $"//input{inputNumber}.txt";
+            var sr = new StreamReader(path);
             var line = sr.ReadLine();
             while (line is not null)
             {

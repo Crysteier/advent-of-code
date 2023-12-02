@@ -8,10 +8,7 @@ namespace AdventOfCode.Shared.Years
 {
     public abstract class Year2023 : DaySolver
     {
-        public Year2023(string fileName) : base($"Y2023//"+fileName)
-        {
-        }
-
+        public Year2023(string day) : base($"Y2023//" + day) { }
         public abstract string Solution1();
         public abstract string Solution2();
 

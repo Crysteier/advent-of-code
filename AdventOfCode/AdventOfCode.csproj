@@ -9,14 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Y2023\Day1\README.md" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Y2023\Day1\README.md" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Y2021\" />
     <Folder Include="Y2020\" />
     <Folder Include="Y2019\" />
@@ -27,10 +19,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Y2023\Day1\input1.txt">
+    <None Update="Y2022\Day1\input1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Y2022\Day1\test.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Y2023\Day1\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Y2023\Day2\input2.txt">
+    <None Update="Y2023\Day2\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

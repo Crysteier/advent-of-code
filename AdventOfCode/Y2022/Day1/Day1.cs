@@ -9,18 +9,18 @@ namespace AdventOfCode.Y2022.Day1
 {
     public class Day1 : Year2022
     {
-        public Day1(string day) : base(day)
+        public Day1() : base(nameof(Day1))
         {
         }
 
         public override string Solution1()
         {
-            throw new NotImplementedException();
+            return "";
         }
 
         public override string Solution2()
         {
-            throw new NotImplementedException();
+            return "";
         }
     }
 }

@@ -10,24 +10,53 @@ namespace AdventOfCode.Shared
     public abstract class DaySolver
     {
         public readonly List<string> input = new List<string>();
-
-        public DaySolver(string fileName)
+        public readonly List<string> test = new List<string>();
+        public DaySolver(string folderPath)
         {
-            ReadInput(fileName);
+            ReadInput(folderPath);
+            ReadTests(folderPath);
         }
 
-        public List<string> ReadInput(string fileName)
+        public List<string> ReadTests(string folderPath)
         {
-            var inputNumber = Regex.Match(fileName, (@"\d+"),RegexOptions.RightToLeft).Value;
-            var path = fileName + $"//input{inputNumber}.txt";
-            var sr = new StreamReader(path);
-            var line = sr.ReadLine();
-            while (line is not null)
+            var fullPath = folderPath + $"//test.txt";
+            try
             {
-                input.Add(line);
-                line = sr.ReadLine();
+                var sr = new StreamReader(fullPath);
+                var line = sr.ReadLine();
+                while (line is not null)
+                {
+                    test.Add(line);
+                    line = sr.ReadLine();
+                }
+                return test;
             }
-            return input;
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public List<string> ReadInput(string folderPath)
+        {
+            var fullPath = folderPath + $"//input.txt";
+            try
+            {
+                var sr = new StreamReader(fullPath);
+                var line = sr.ReadLine();
+                while (line is not null)
+                {
+                    input.Add(line);
+                    line = sr.ReadLine();
+                }
+                return input;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }

@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "AdventOfCode": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "SESSION": "53616c7465645f5f47a52839b07cdcc3b27f0f5a06fa9612f7b02268ac497447f831f63a1756ed783b1e8c36fc7ae67e6fb5929a5ab590ca031a3c1249d2ae38"
+      },
+      "remoteDebugEnabled": false
+    }
+  }
+}

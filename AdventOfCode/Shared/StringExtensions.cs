@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace AdventOfCode.Shared
@@ -10,9 +11,23 @@ namespace AdventOfCode.Shared
     {
         public static int ToInt(this string from)
         {
-            if (int.TryParse(from, out int result))
+            string stringWithoutSpaces = Regex.Replace(from, @"\s", "");
+            if (stringWithoutSpaces.Length <= 0)
             {
-                return result;
+                return 0;
+            }
+
+            try
+            {
+                if (int.TryParse(stringWithoutSpaces, out int result))
+                {
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
             }
 
             throw new ArgumentException("Incorrect string to int format!");

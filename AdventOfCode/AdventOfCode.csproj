@@ -9,6 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Y2023\Day1\README.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Y2023\Day1\README.md" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Y2021\" />
     <Folder Include="Y2020\" />
     <Folder Include="Y2019\" />

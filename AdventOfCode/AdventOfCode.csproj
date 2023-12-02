@@ -19,10 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Y2023\Days\Day1\input1.txt">
+    <None Update="Y2023\Day1\input1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Y2023\Days\Day2\input2.txt">
+    <None Update="Y2023\Day2\input2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

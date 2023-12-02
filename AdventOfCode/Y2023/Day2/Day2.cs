@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AdventOfCode.Shared;
 using AdventOfCode.Shared.Years;
 
-namespace AdventOfCode.Y2023.Days.Day2
+namespace AdventOfCode.Y2023.Day2
 {
     internal class Day2 : Year2023
     {

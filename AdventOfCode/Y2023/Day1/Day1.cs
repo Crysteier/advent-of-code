@@ -2,7 +2,7 @@
 using AdventOfCode.Shared;
 using AdventOfCode.Shared.Years;
 
-namespace AdventOfCode.Y2023.Days.Day1
+namespace AdventOfCode.Y2023.Day1
 {
     internal class Day1 : Year2023
     {

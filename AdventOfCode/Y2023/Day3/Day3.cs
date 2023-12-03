@@ -15,6 +15,9 @@ namespace AdventOfCode.Y2023.Day3
         private Dictionary<string, List<int>> stars = new Dictionary<string, List<int>>();
         private string currentCoords = string.Empty;
 
+        /// <summary>
+        /// I dont give a fuck that this is so fucking ugly, I LOVE IT.
+        /// </summary>
         public Day3() : base(nameof(Day3))
         {
         }

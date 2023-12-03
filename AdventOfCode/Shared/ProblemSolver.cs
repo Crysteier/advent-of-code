@@ -29,9 +29,14 @@ namespace AdventOfCode.Shared
         /// Reads the whole input into a single string. Sometimes this is needed.
         /// </summary>
         /// <returns></returns>
-        public string ReadPlainInput()
+        public string ReadPlainInput(bool test = false)
         {
-            var fullPath = _folderPath + $"//input.txt";
+            var file = "//input.txt";
+            if (test)
+            {
+                file = "//test.txt";
+            }
+            var fullPath = _folderPath + $"{file}";
 
             try
             {
@@ -123,6 +128,7 @@ namespace AdventOfCode.Shared
                     {
                         string content = await response.Content.ReadAsStringAsync();
 
+                        EnsureDirectoryExists(outputFile);
 
                         using (StreamWriter writer = new StreamWriter(outputFile, true))
                         {
@@ -138,6 +144,15 @@ namespace AdventOfCode.Shared
                         Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}");
                     }
                 }
+            }
+        }
+
+        private static void EnsureDirectoryExists(string filePath)
+        {
+            FileInfo fi = new FileInfo(filePath);
+            if (!fi.Directory.Exists)
+            {
+                System.IO.Directory.CreateDirectory(fi.DirectoryName);
             }
         }
     }

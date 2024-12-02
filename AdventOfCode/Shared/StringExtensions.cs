@@ -12,9 +12,10 @@ namespace AdventOfCode.Shared
         public static int ToInt(this string from)
         {
             string stringWithoutSpaces = Regex.Replace(from, @"\s", "");
+
             if (stringWithoutSpaces.Length <= 0)
             {
-                return 0;
+                throw new ArgumentException($"Incorrect string to int format: [{from}]");
             }
 
             try

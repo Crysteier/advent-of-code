@@ -2,9 +2,9 @@
 
 namespace AdventOfCode.Y2024.Day1
 {
-    internal class Day1 : Year2024
+    internal class Day2 : Year2024
     {
-        public Day1() : base(nameof(Day1)) { }
+        public Day2() : base(nameof(Day2)) { }
 
         public override string Solution1()
         {

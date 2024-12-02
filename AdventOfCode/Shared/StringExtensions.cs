@@ -33,5 +33,30 @@ namespace AdventOfCode.Shared
 
             throw new ArgumentException("Incorrect string to int format!");
         }
+
+        public static List<int> ConvertToIntList(this string input, char separator)
+        {
+            return input.Split(separator).Select(int.Parse).ToList();
+        }
+
+        public static string ToConsole(this List<int> row)
+        {
+            var result = "";
+            foreach (var item in row)
+            {
+                result += item + " ";
+            }
+            return result;
+        }
+
+        public static string ToConsole(this int[] row)
+        {
+            var result = "";
+            foreach (var item in row)
+            {
+                result += item + " ";
+            }
+            return result;
+        }
     }
 }

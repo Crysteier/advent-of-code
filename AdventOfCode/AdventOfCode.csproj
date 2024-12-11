@@ -16,6 +16,7 @@
     <Folder Include="Y2017\" />
     <Folder Include="Y2016\" />
     <Folder Include="Y2015\" />
+    <Folder Include="Y2024\Day5\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,6 +54,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Y2023\Day4\test.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Y2024\Day11\input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Y2024\Day11\test.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Y2024\Day2\input.txt">
